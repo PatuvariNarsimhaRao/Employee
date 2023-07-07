@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="Registration_Form.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>--> 
+    <style>/* ===== Google Font Import - Poppins ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .container{
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 6px;
+            padding: 30px;
+            margin: 0 15px;
+            /* background-color: #fff;  */
+            /* box-shadow: 0 5px 10px rgba(0,0,0,0.1); */
+        }
+        .container header{
+            position: relative;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+        .container header::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 3px;
+            width: 27px;
+            border-radius: 8px;
+            background-color: #4c40f4;
+        }
+        .container form{
+            position:relative;
+            margin-top: 16px;
+            min-height: 490px;
+            /* background-color: #fff;  */
+            overflow: hidden;
+        }
+        .container form .form{
+            position:relative;
+            /* background-color: #fff;  */
+            transition: 0.3s ease;
+        }
+        .background-image {
+            position:absolute;
+            border-bottom: 50px;
+            left: 50px;
+            width: 100%;
+            height: 100%;
+             background: url('data:image/jpeg;base64,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') no-repeat center center fixed;
+            background-size: contain;
+          
+        }
+        .container form .form.second{
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(100%);
+        }
+        form.secActive .form.second{
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0);
+        }
+        form.secActive .form.first{
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-100%);
+        }
+        .container form .title{
+            display: block;
+            margin-bottom: 8px;
+            font-size: 20px;
+            font-weight: 500;
+            margin: 6px 0;
+            color: #333;
+        }
+        .container form .fields{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        form .fields .input-field{
+            display: flex;
+            width: calc(100% / 3 - 15px);
+            flex-direction: column;
+            margin: 4px 0;
+        }
+        .input-field label{
+            font-size: 15px;
+            font-weight: 500;
+            color: #2e2e2e;
+        }
+        .input-field input, select{
+            outline: none;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            border-radius: 5px;
+            border: 2px solid #070707;
+            padding: 0 15px;
+            height: 42px;
+            margin: 8px 0;
+        }
+        .input-field input :focus,
+        .input-field select:focus{
+            box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+        }
+        .input-field select,
+        .input-field input[type="date"]{
+            color: #707070;
+        }
+        .input-field input[type="date"]:valid{
+            color: #333;
+        }
+        .container form button, .backBtn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 45px;
+            max-width: 200px;
+            width: 100%;
+            border: none;
+            outline: none;
+            color: #fff;
+            border-radius: 5px;
+            margin: 25px 0;
+            background-color: #4070f4;
+            transition: all 0.3s linear;
+            cursor: pointer;
+        }
+        .container form .btnText{
+            font-size: 14px;
+            font-weight: 400;
+        }
+        form button:hover{
+            background-color: #f2a02671;
+        }
+        form button i,
+        form .backBtn i{
+            margin: 0 6px;
+        }
+        form .backBtn i{
+            transform: rotate(180deg);
+        }
+        form .buttons{
+            display: flex;
+            align-items: center;
+        }
+        form .buttons button , .backBtn{
+            margin-right: 14px;
+        }
+        
+        @media (max-width: 750px) {
+            .container form{
+                overflow-y: scroll;
+            }
+            .container form::-webkit-scrollbar{
+               display: none;
+            }
+            form .fields .input-field{
+                width: calc(100% / 2 - 15px);
+            }
+        }
+        
+        @media (max-width: 550px) {
+            form .fields .input-field{
+                width: 100%;
+            }
+        }</style>
+</head>
+<body>
+
+       
+    </div>
+    <div class="background-image">
+        <img src="naresh01.jpg">
+    </div>
+    <br>
+
+    <div class="container">
+        <header>EMPLOYEE DETAILS </header>
+
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label><h3>Full Name</h3></label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Date of Birth</h3></label>
+                            <input type="date" placeholder="Enter birth date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>mail</h3></label>
+                            <input type="text" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Mobile Number</h3></label>
+                            <input type="number" placeholder="Enter mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Gender</h3></label>
+                            <select required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Designation</h3></label>
+                            <input type="text" placeholder="Enter your Designation" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Identity Details</span>
+
+                    <div class="fields">
+                       
+
+                        <div class="input-field">
+                            <label><h3>Employee ID</h3></label>
+                            <input type="number" placeholder="Enter  EmployeeID number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Blood Group</h3></label>
+                            <input type="text" placeholder=" Enter Blood Group" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Alternate Mobile number</h3></label>
+                            <input type="text" placeholder="Enter Alternate Mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Address </h3></label>
+                            <input type="text" placeholder="Enter Address" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label><h3>Hiredate </h3></Hiredate></label>
+                            <input type="date" placeholder="Enter Hiredate" required>
+                        </div>
+                        <div class="input-field">
+                            <label><h3>Marital Status</h3></label>
+                            <input type="text" placeholder="Enter marital Status" required>
+                        </div>
+                    
+
+                        
+                    
+                </div> 
+            
+        <div>
+           <button class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <!--<script src="script.js"></script>-->
+</body>
+</html>
